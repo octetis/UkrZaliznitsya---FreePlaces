@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0CFCD4147FE0EB00F98EFD /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CFCD3147FE0EB00F98EFD /* DatePicker.m */; };
+		CC0CFCD8148169E500F98EFD /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0CFCD7148169E500F98EFD /* AppIcon.png */; };
+		CC0CFCDA148262F000F98EFD /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = CC0CFCD9148262F000F98EFD /* style.css */; };
 		CC2D3F95147BD6FB00692E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2D3F94147BD6FB00692E0C /* Foundation.framework */; };
 		CC2D3F97147BD6FB00692E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2D3F96147BD6FB00692E0C /* UIKit.framework */; };
 		CC2D3F99147BD6FB00692E0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2D3F98147BD6FB00692E0C /* CoreGraphics.framework */; };
@@ -33,9 +36,15 @@
 		CC2D3FCF147BD6FD00692E0C /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC2D3FCE147BD6FD00692E0C /* Capture.bundle */; };
 		CC2D3FD1147BD6FD00692E0C /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D3FD0147BD6FD00692E0C /* PhoneGap.plist */; };
 		CC2D3FD5147BD6FD00692E0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D3FD4147BD6FD00692E0C /* AppDelegate.m */; };
+		CC2D3FDE147BDB1200692E0C /* www in Resources */ = {isa = PBXBuildFile; fileRef = CC2D3FDD147BDB1200692E0C /* www */; };
+		CC2F8D5D1487BC700092852E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F8D5C1487BC6F0092852E /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC0CFCD2147FE0EB00F98EFD /* DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePicker.h; sourceTree = "<group>"; };
+		CC0CFCD3147FE0EB00F98EFD /* DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePicker.m; sourceTree = "<group>"; };
+		CC0CFCD7148169E500F98EFD /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		CC0CFCD9148262F000F98EFD /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = www/style.css; sourceTree = "<group>"; };
 		CC2D3F90147BD6FB00692E0C /* UkrZal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkrZal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2D3F94147BD6FB00692E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CC2D3F96147BD6FB00692E0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -50,9 +59,9 @@
 		CC2D3FA8147BD6FC00692E0C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CC2D3FAA147BD6FC00692E0C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CC2D3FAC147BD6FC00692E0C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		CC2D3FB0147BD6FC00692E0C /* UkrZal-Info.plist */ = {isa = PBXFileReference; path = "UkrZal-Info.plist"; sourceTree = "<group>"; };
+		CC2D3FB0147BD6FC00692E0C /* UkrZal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UkrZal-Info.plist"; sourceTree = "<group>"; };
 		CC2D3FB2147BD6FC00692E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CC2D3FB4147BD6FC00692E0C /* UkrZal-Prefix.pch */ = {isa = PBXFileReference; path = "UkrZal-Prefix.pch"; sourceTree = "<group>"; };
+		CC2D3FB4147BD6FC00692E0C /* UkrZal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UkrZal-Prefix.pch"; sourceTree = "<group>"; };
 		CC2D3FB5147BD6FC00692E0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC2D3FB7147BD6FC00692E0C /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<absolute>"; };
 		CC2D3FBC147BD6FD00692E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -64,9 +73,11 @@
 		CC2D3FCC147BD6FD00692E0C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/splash/Default@2x.png"; sourceTree = "<group>"; };
 		CC2D3FCE147BD6FD00692E0C /* Capture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Capture.bundle; path = Resources/Capture.bundle; sourceTree = "<group>"; };
 		CC2D3FD0147BD6FD00692E0C /* PhoneGap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
-		CC2D3FD3147BD6FD00692E0C /* AppDelegate.h */ = {isa = PBXFileReference; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		CC2D3FD3147BD6FD00692E0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		CC2D3FD4147BD6FD00692E0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		CC2D3FD7147BD6FD00692E0C /* README */ = {isa = PBXFileReference; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		CC2D3FD7147BD6FD00692E0C /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		CC2D3FDD147BDB1200692E0C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		CC2F8D5C1487BC6F0092852E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +115,10 @@
 		CC2D3F82147BD6FB00692E0C = {
 			isa = PBXGroup;
 			children = (
+				CC2F8D5C1487BC6F0092852E /* Default.png */,
+				CC0CFCD9148262F000F98EFD /* style.css */,
+				CC0CFCD7148169E500F98EFD /* AppIcon.png */,
+				CC2D3FDD147BDB1200692E0C /* www */,
 				CC2D3FAE147BD6FC00692E0C /* UkrZal */,
 				CC2D3F93147BD6FB00692E0C /* Frameworks */,
 				CC2D3F91147BD6FB00692E0C /* Products */,
@@ -221,6 +236,8 @@
 		CC2D3FD6147BD6FD00692E0C /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				CC0CFCD2147FE0EB00F98EFD /* DatePicker.h */,
+				CC0CFCD3147FE0EB00F98EFD /* DatePicker.m */,
 				CC2D3FD7147BD6FD00692E0C /* README */,
 			);
 			name = Plugins;
@@ -287,6 +304,10 @@
 				CC2D3FCD147BD6FD00692E0C /* Default@2x.png in Resources */,
 				CC2D3FCF147BD6FD00692E0C /* Capture.bundle in Resources */,
 				CC2D3FD1147BD6FD00692E0C /* PhoneGap.plist in Resources */,
+				CC2D3FDE147BDB1200692E0C /* www in Resources */,
+				CC0CFCD8148169E500F98EFD /* AppIcon.png in Resources */,
+				CC0CFCDA148262F000F98EFD /* style.css in Resources */,
+				CC2F8D5D1487BC700092852E /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +336,7 @@
 			files = (
 				CC2D3FB6147BD6FC00692E0C /* main.m in Sources */,
 				CC2D3FD5147BD6FD00692E0C /* AppDelegate.m in Sources */,
+				CC0CFCD4147FE0EB00F98EFD /* DatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +482,7 @@
 				CC2D3FDC147BD6FD00692E0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

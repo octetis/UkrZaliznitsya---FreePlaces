@@ -1,0 +1,61 @@
+html, body {
+	font-family: Calibri;
+    font-size: 14;
+    height: 100%;
+    font-variant: small-caps;
+
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4.0em;
+}
+.footer, .push {
+    font-size: 6;
+    font-variant: small-caps;
+}
+#travelDateWrapper {
+    background-color:white;
+    width:135px;
+    border-color: black;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;	
+	box-shadow: 1px 1px 1px gray;
+	-webkit-box-shadow: 1px 1px 1px gray;
+    border: 1px solid #000000;
+    margin-left: 3px;
+}
+.imgLogo
+{
+    max-width: 55px; max-height: 30px; 
+}
+
+
+.button {
+    border-top: 1px solid #195273;
+    background: #4aa4e0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#5499e3), to(#4aa4e0));
+    background: -webkit-linear-gradient(top, #5499e3, #4aa4e0);
+    background: -moz-linear-gradient(top, #5499e3, #4aa4e0);
+    background: -ms-linear-gradient(top, #5499e3, #4aa4e0);
+    background: -o-linear-gradient(top, #5499e3, #4aa4e0);
+    padding: 4.5px 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 14px;
+    font-family: Georgia;
+    text-decoration: bold;
+    vertical-align: middle;
+    text-align: center;
+    width: 70px;
+}
