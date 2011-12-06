@@ -4,5 +4,11 @@ Author: Voronetskyy Yevgen
 Desc : iPhone app for check the free place for a train on UkrZaliznytsya
 
 More details here
+1. Technologies stack:
+PhoneGap framework
+HTML/CSS/JavaScript
+
+2. Development env depends on XCode from Apple.
+
 
 
