@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">
+
+
+			
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />	
+    <link type="text/css" HREF="style.css" REL="stylesheet" />
+	
+	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+	<script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
+ 	<script type="text/javascript" charset="utf-8" src="DatePicker.js"></script>
+    <script type="text/javascript">
+
+
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    };
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url)
+	{
+		// TODO: do something with the url passed in.
+	}
+	*/
+	
+    function onBodyLoad()
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
+	/* When this function is called, PhoneGap has been initialized and is ready to roll */
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	function onDeviceReady()
+	{
+        var currentDate = new Date();
+        document.getElementById("travelDate").innerHTML = dateFormat(currentDate);
+	}
+        var cb = function(date) {
+            console.log(date.toString());
+            document.getElementById("travelDate").innerHTML = dateFormat(date);
+        }
+        
+        var show = function(mode) {
+            plugins.datePicker.show({
+                                    date: new Date(),
+                                    mode: mode, //date or time or blank for both
+                                    allowOldDates: false
+                                    }, cb);
+        }
+        
+    function dateFormat(dateToFormat)
+    {
+        var date = dateToFormat.getDate();
+        var month = dateToFormat.getMonth();
+        var year = dateToFormat.getFullYear();
+        return year+"-"+month+"-"+date;
+            
+    }
+    function checkPlaces()
+    {
+        var name =      document.getElementById("from").value;  
+        
+        navigator.notification.alert("from : " + name);
+            
+    }
+         
+    
+    </script>
+  </head>
+  <body onload="onBodyLoad()" background="tgv2.png">
+      <div class="wrapper">
+       <p align="center"><b>   Cвободные места на поезд :</b></p>
+      
+      <table width="100%" border="0">
+          <tr>
+              <td align="right" width="35%">Откуда : </td>
+              <td><input type="text" id="from"/></td>
+              
+          </tr>
+          <tr>
+              <td align="right">Куда : </td>
+              <td><input type="text" id="to"/></td>               
+          </tr>
+          <tr>
+              <td align="right">Дата :</td>
+              <td><div id="travelDateWrapper" onclick="show('')">  <div id="travelDate" style="padding-left: 25px;"></div>   </div></td>    
+          </tr>
+          <tr>
+              <td colspan="2">&nbsp;</td>
+          </tr>
+          <tr>
+              <td colspan="2" align="center"><img src="buttonCheck.png" onclick="checkPlaces()"/></td>
+          </tr>
+      </table>
+          <div class="push"></div>
+      </div>
+      
+      <footer class="footer">
+          <table width="100%">
+              <tr>
+                  <td>
+                      <img src="Test2.png" />
+                  </td>
+                  <td>
+                     <img src="Test2.png" />
+                  </td>
+                  <td align="right">
+                     <img src="Test2.png"/>
+                      
+                  </td>
+              </tr>
+          </table>
+          
+      </footer>
+    <!--  
+      <div id="places">
+          <small>
+          <table cellpadding="2">
+              <tbody><tr bgcolor="#c3d3e6">
+                  <th align="center" valign="middle" rowspan="2">№<br>поїзда</th>
+                  <th align="center" valign="middle" rowspan="2">Маршрут поїзда</th>
+                  <th align="center" valign="middle" colspan="3">Час</th>
+                  
+                  <th align="center" valign="middle" colspan="9">Наявність місць</th>
+                  
+              </tr>
+                  <tr bgcolor="#c3d3e6">
+                      <th align="center" valign="middle">відправлення</th>
+                      <th align="center" valign="middle">прибуття</th>
+                      <th align="center" valign="middle">у дорозі</th>
+                      
+                      <th align="center" valign="middle">люкс</th>
+                      
+                      <th align="center" valign="middle">купе<br>(нижні)</th>
+                      
+                      <th align="center" valign="middle">купе<br>(верхні)</th>
+                      
+                      <th align="center" valign="middle">плацкарт<br>(нижні)</th>
+                      
+                      <th align="center" valign="middle">плацкарт<br>(верхні)</th>
+                      
+                      <th align="center" valign="middle">плацкарт<br>(бокові нижні)</th>
+                      
+                      <th align="center" valign="middle">плацкарт<br>(бокові верхні)</th>
+                      
+                      <th align="center" valign="middle" nowrap="">сидячі<br>(1 клас)</th>
+                      
+                      <th align="center" valign="middle" nowrap="">сидячі<br>(2 клас)</th>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#f0f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvcmNrYzg4NDUwMDA1Mi9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=0#7_91HG12828OVIB02FV7TUIS20G0">168К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; ДНІПРО.ГОЛ
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">06:59</td>
+                      <td align="center" valign="middle" nowrap="">12:49</td>
+                      <td align="center" valign="middle" nowrap="">005:50</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          15
+                      </td><td align="center" valign="middle" nowrap="">
+                          11
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#e6f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvY2NrYzg4NDUwMDA1My9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=1#7_91HG12828OVIB02FV7TUIS20G0">040К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; СЕВАСТОП.
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">13:12</td>
+                      <td align="center" valign="middle" nowrap="">21:02</td>
+                      <td align="center" valign="middle" nowrap="">007:50</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          3
+                      </td><td align="center" valign="middle" nowrap="">
+                          17
+                      </td><td align="center" valign="middle" nowrap="">
+                          28
+                      </td><td align="center" valign="middle" nowrap="">
+                          18
+                      </td><td align="center" valign="middle" nowrap="">
+                          31
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#f0f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvZGNrYzg4NDUwMDA1NC9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=2#7_91HG12828OVIB02FV7TUIS20G0">084К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; МАРІУПОЛЬ
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">16:36</td>
+                      <td align="center" valign="middle" nowrap="">01:23</td>
+                      <td align="center" valign="middle" nowrap="">008:47</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          7
+                      </td><td align="center" valign="middle" nowrap="">
+                          1
+                      </td><td align="center" valign="middle" nowrap="">
+                          13
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          4
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          12
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#e6f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvZWNrYzg4NDUwMDA1NS9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=3#7_91HG12828OVIB02FV7TUIS20G0">166К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; ДНІПРО.ГОЛ
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">17:44</td>
+                      <td align="center" valign="middle" nowrap="">23:38</td>
+                      <td align="center" valign="middle" nowrap="">005:54</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          14
+                      </td><td align="center" valign="middle" nowrap="">
+                          60
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#f0f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAveGNrYzg4NDUwMDA1Ni9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=4#7_91HG12828OVIB02FV7TUIS20G0">012К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; СІМФЕРОП
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">18:55</td>
+                      <td align="center" valign="middle" nowrap="">01:36</td>
+                      <td align="center" valign="middle" nowrap="">006:41</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          14
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          25
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#e6f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvc2NrYzg4NDUwMDA1Ny9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=5#7_91HG12828OVIB02FV7TUIS20G0">038К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; ДОНЕЦЬК
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">19:25</td>
+                      <td align="center" valign="middle" nowrap="">02:50</td>
+                      <td align="center" valign="middle" nowrap="">007:25</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          25
+                      </td><td align="center" valign="middle" nowrap="">
+                          43
+                      </td><td align="center" valign="middle" nowrap="">
+                          1
+                      </td><td align="center" valign="middle" nowrap="">
+                          9
+                      </td><td align="center" valign="middle" nowrap="">
+                          2
+                      </td><td align="center" valign="middle" nowrap="">
+                          17
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#f0f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvd2NrYzg4NDUwMDA1OC9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=6#7_91HG12828OVIB02FV7TUIS20G0">028К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; СЕВАСТОП.
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">20:21</td>
+                      <td align="center" valign="middle" nowrap="">03:41</td>
+                      <td align="center" valign="middle" nowrap="">007:20</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          2
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          1
+                      </td><td align="center" valign="middle" nowrap="">
+                          3
+                      </td><td align="center" valign="middle" nowrap="">
+                          12
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#e6f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAveWNrYzg4NDUwMDA1OS9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=7#7_91HG12828OVIB02FV7TUIS20G0">072К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; ЗАПОРІЖ 1
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">20:27</td>
+                      <td align="center" valign="middle" nowrap="">04:25</td>
+                      <td align="center" valign="middle" nowrap="">007:58</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          12
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          12
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          16
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#f0f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvVXJrYzg4NDUwMDA2MC9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=8#7_91HG12828OVIB02FV7TUIS20G0">018К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; АДЛЕР
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">22:57</td>
+                      <td align="center" valign="middle" nowrap="">07:23</td>
+                      <td align="center" valign="middle" nowrap="">008:26</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          5
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          3
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+                  <tr bgcolor="#e6f5ff">
+                      <td align="center" valign="middle" nowrap="">
+                          
+                          <a href="/wps/myportal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDf1MjYzcXYws3A0cvc08LSx8DKADKR2LKmxrD5fHrDgfZh18_WB4HcDTArt8CYYOfR35uqn6kfpR5vKWhh7uhkYWRhX-Yp5OBkVuYeUioZ7CRgbuBfmROanpicqV-QW6EQWZARiAA_7KIxQ!!/dl3/d3/L0lJSklna21DU1EhIS9JRGpBQU15QUJFUkNKRXFnLzRGR2dzbzBWdnphOUlBOW9JQSEhLzdfOTFIRzEyODI4T1ZJQjAyRlY3VFVJUzIwRzAvTnJrYzg4NDUwMDA2MS9zYS5yZXplcnZhdGlvbi5MaW5r/?PC_7_91HG12828OVIB02FV7TUIS20G0000000_NPX=9#7_91HG12828OVIB02FV7TUIS20G0">080К</a>
+                          
+                      </td>
+                      <td align="left" valign="middle" nowrap="">
+                          КИЇВ ПАС &gt; ДНІПРО.ГОЛ
+                      </td>
+                      
+                      <td align="center" valign="middle" nowrap="">23:12</td>
+                      <td align="center" valign="middle" nowrap="">07:00</td>
+                      <td align="center" valign="middle" nowrap="">007:48</td>
+                      
+                      <td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          17
+                      </td><td align="center" valign="middle" nowrap="">
+                          27
+                      </td><td align="center" valign="middle" nowrap="">
+                          18
+                      </td><td align="center" valign="middle" nowrap="">
+                          34
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td><td align="center" valign="middle" nowrap="">
+                          -
+                      </td>
+                      
+                  </tr>
+                  
+              </tbody></table>
+              </small>
+      </div> -->
+  </body>
+</html>
